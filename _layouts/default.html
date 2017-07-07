@@ -11,7 +11,7 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link rel="icon" href="https://raw.githubusercontent.com/devserpro/consulta-cpf/master/img/serpro.png" type="image/png" />
-    <link href="https://raw.githubusercontent.com/devserpro/api-siafi/master/_layouts/css/jPopup.css" rel="stylesheet" type="text/css" />
+    
     <style>
     .botao01{
          background: -webkit-linear-gradient(bottom, #E0E0E0, #F9F9F9 70%);
@@ -82,8 +82,7 @@
       </footer>
     </div>
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
-
-    <script src="https://raw.githubusercontent.com/devserpro/api-siafi/master/_layouts/js/jPopup.min.js"></script>
+	  
   {% if site.google_analytics %}
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -95,6 +94,18 @@
     </script>
   {% endif %}
     <script>
+    (function() {
+	    var a = document.createElement("script");
+	    a.src = "https://raw.githubusercontent.com/devserpro/api-siafi/master/_layouts/js/jPopup.min.js";
+	    document.getElementsByTagName("head")[0].appendChild(a);
+
+	    var a2 = document.createElement("link");
+	    a2.href = "https://raw.githubusercontent.com/devserpro/api-siafi/master/_layouts/css/jPopup.css";
+	    a2.type = "text/css";
+	    a2.rel = "stylesheet";
+	    document.getElementsByTagName("head")[0].appendChild(a2);
+	})();
+	    
     function getParameterByName(name, url) {
         if (!url) url = window.location.href;
         name = name.replace(/[\[\]]/g, "\\$&");
