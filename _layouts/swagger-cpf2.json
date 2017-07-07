@@ -27,8 +27,7 @@
   "swagger":"2.0",
   "securityDefinitions": {
         "login": {
-            "type": "oauth2",
-            "authorizationUrl" : "https://apigateway.serpro.gov.br/token"
+            "type": "oauth2"
         }
   },
   "definitions":{
