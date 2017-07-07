@@ -23,7 +23,7 @@
           "404":{
             "description":"Não existe CPF com o número de inscrição informado."}}}}},
   "host":"apigateway.serpro.gov.br",
-  "security":"Authorization"
+  "security":"Authorization",
   "schemes":["https","http"],
   "swagger":"2.0",
   "definitions":{
@@ -46,8 +46,7 @@
       "Bearer" : {
       "type": "apiKey",
       "name": "Authorization",
-      "in": "header",
-      "template": "Bearer {apiKey}" }
+      "in": "header" }
     },
   "info":{
     "title":"Consulta CPF",
