@@ -25,13 +25,6 @@
   "host":"apigateway.serpro.gov.br",
   "schemes":["https","http"],
   "swagger":"2.0",      
-  },
-  "securityDefinitions":{
-    "Bearer" : {
-    "type": "apiKey",
-    "name": "Authorization",
-    "in": "header",
-    "template": "Bearer {apiKey}" }
   }, 
   "definitions":{
     "CPF":{
@@ -49,6 +42,13 @@
           "type":"string"}},
       "type":"object"}},
   "consumes":["application/json"],
+  "securityDefinitions":{
+      "Bearer" : {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "template": "Bearer {apiKey}" }
+    },
   "info":{
     "title":"Consulta CPF",
     "description":"#Consulta CPF\n# API de acesso aos dados do Cadastro Nacional de Pessoa Física, em tempo real, diretamente das bases de Governo. \n#destaque",
