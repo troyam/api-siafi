@@ -1,12 +1,5 @@
 {
-  "basePath":"/consulta-cpf/v1",
-  "securityDefinitions": {
-    "APIKey" : {
-    "type": "apiKey",
-    "name": "Authorization",
-    "in": "header",
-    "template": "Bearer {apiKey}"
-    },  
+  "basePath":"/consulta-cpf/v1", 
   "paths":{
     "/cpf/{ni}":{
       "get":{
@@ -33,6 +26,13 @@
   "schemes":["https","http"],
   "swagger":"2.0",      
   },
+  "securityDefinitions": {
+    "APIKey" : {
+    "type": "apiKey",
+    "name": "Authorization",
+    "in": "header",
+    "template": "Bearer {apiKey}"
+    }}, 
   "definitions":{
     "CPF":{
       "properties":{
