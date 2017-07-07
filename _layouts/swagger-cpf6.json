@@ -1,10 +1,18 @@
 {
   "basePath":"/consulta-cpf/v1",
+  "securityDefinitions": {
+    "Bearer" : {
+    "type": "apiKey",
+    "name": "Authorization",
+    "in": "header",
+    "template": "Bearer"
+    },  
   "paths":{
     "/cpf/{ni}":{
       "get":{
         "x-auth-type":"Application & Application User",
         "x-throttling-tier":"Unlimited",
+        "security": "api_key": [ ],
         "description":"Retorna os dados do Cadastro de Pessoa Física (CPF)",
         "produces":["application/json"],
         "parameters":[{
@@ -24,14 +32,7 @@
             "description":"Não existe CPF com o número de inscrição informado."}}}}},
   "host":"apigateway.serpro.gov.br",
   "schemes":["https","http"],
-  "swagger":"2.0",
-  "securityDefinitions": {
-    "Bearer" : {
-    "type": "bearer",
-    "name": "Authorization",
-    "in": "header",
-    "template": "Bearer"
-    }        
+  "swagger":"2.0",      
   },
   "definitions":{
     "CPF":{
