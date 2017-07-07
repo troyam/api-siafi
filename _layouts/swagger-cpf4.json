@@ -27,7 +27,7 @@
   "swagger":"2.0",
   "securityDefinitions": {
     "Bearer" : {
-    "type": "apiKey"
+    "type": "apiKey",
     "name": "Authorization",
     "in": "header"
     }        
