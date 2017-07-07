@@ -3,7 +3,7 @@
   "paths":{
     "/cpf/{ni}":{
       "get":{
-        "x-auth-type":"Application & Application User",
+        "x-auth-type":"Bearer",
         "x-throttling-tier":"Unlimited",
         "description":"Retorna os dados do Cadastro de Pessoa Física (CPF)",
         "produces":["application/json"],
