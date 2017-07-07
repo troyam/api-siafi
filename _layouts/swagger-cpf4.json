@@ -26,11 +26,11 @@
   "schemes":["https","http"],
   "swagger":"2.0",
   "securityDefinitions": {
-        "login": {
-            "type": "oauth2",
-            "api_key":{"type":"apiKey","name":"api_key","in":"header"}
-        }
-        
+    "Bearer" : {
+    "type": "apiKey"
+    "name": "Authorization",
+    "in": "header"
+    }        
   },
   "definitions":{
     "CPF":{
