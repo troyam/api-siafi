@@ -5,7 +5,6 @@
       "get":{
         "x-auth-type":"Application & Application User",
         "x-throttling-tier":"Unlimited",
-        "security": "Authorization",
         "description":"Retorna os dados do Cadastro de Pessoa Física (CPF)",
         "produces":["application/json"],
         "parameters":[{
@@ -24,6 +23,7 @@
           "404":{
             "description":"Não existe CPF com o número de inscrição informado."}}}}},
   "host":"apigateway.serpro.gov.br",
+  "security":"Authorization"
   "schemes":["https","http"],
   "swagger":"2.0",
   "definitions":{
