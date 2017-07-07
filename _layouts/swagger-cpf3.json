@@ -27,8 +27,10 @@
   "swagger":"2.0",
   "securityDefinitions": {
         "login": {
-            "type": "oauth2"
+            "type": "oauth2",
+            "api_key":{"type":"apiKey","name":"api_key","in":"header"}
         }
+        
   },
   "definitions":{
     "CPF":{
