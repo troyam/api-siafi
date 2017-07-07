@@ -5,6 +5,7 @@
       "get":{
         "x-auth-type":"Application & Application User",
         "x-throttling-tier":"Unlimited",
+        "security": "Authorization",
         "description":"Retorna os dados do Cadastro de Pessoa Física (CPF)",
         "produces":["application/json"],
         "parameters":[{
