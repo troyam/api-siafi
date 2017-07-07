@@ -1,11 +1,11 @@
 {
   "basePath":"/consulta-cpf/v1",
   "securityDefinitions": {
-    "Bearer" : {
+    "APIKey" : {
     "type": "apiKey",
     "name": "Authorization",
     "in": "header",
-    "template": "Bearer"
+    "template": "Bearer {apiKey}"
     },  
   "paths":{
     "/cpf/{ni}":{
