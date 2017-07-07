@@ -6,7 +6,7 @@
     <title>API SIAFI - SERPRO</title>
     <!-- <title>{{ site.title | default: site.github.repository_name }} por {{ site.github.owner_name }} </title>-->
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}" />
-    <link rel="stylesheet" href="https://raw.githubusercontent.com/devserpro/api-siafi/master/_layouts/css/jPopup.css" />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/devserpro/api-siafi/master/_layouts/css/jPopup.css" />
     <meta name="viewport" content="width=device-width">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -83,6 +83,7 @@
       </footer>
     </div>
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
+    <script src="https://cdn.rawgit.com/devserpro/api-siafi/master/_layouts/js/jPopup.min.js"></script>
 	  
   {% if site.google_analytics %}
     <script>
@@ -94,13 +95,7 @@
         ga('send', 'pageview');
     </script>
   {% endif %}
-    <script>
-    (function() {
-	    var a = document.createElement("script");
-	    a.src = "https://raw.githubusercontent.com/devserpro/api-siafi/master/_layouts/js/jPopup.min.js";
-	    document.getElementsByTagName("head")[0].appendChild(a);
-	})();
-	    
+    <script>	    
     function getParameterByName(name, url) {
         if (!url) url = window.location.href;
         name = name.replace(/[\[\]]/g, "\\$&");
