@@ -84,6 +84,9 @@
     </div>
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
     <script src="https://cdn.rawgit.com/devserpro/api-siafi/master/_layouts/js/jPopup.min.js"></script>
+    <script src="https://cdn.rawgit.com/devserpro/api-siafi/master/_layouts/js/swagger/swagger-ui-bundle.js"></script>
+    <script src="https://cdn.rawgit.com/devserpro/api-siafi/master/_layouts/js/swagger/swagger-ui-standalone-preset.js"></script>
+
 	  
   {% if site.google_analytics %}
     <script>
@@ -149,7 +152,27 @@
 			<div id="swagger-ui" style="border-radius: 25px 0px 0px 25px; border: 2px solid #89BF04; height: 420px; width: 100%; overflow-y: auto;"></div>\
 			'
 
-			});
+		});
+	    const ui = SwaggerUIBundle({
+				url: "https://apigov.serpro.gov.br/desenvolvedor/api-docs/admin/ConsultaCPFTrial/1",
+				dom_id: '#swagger-ui',
+				"securityDefinitions": {
+					"login": {
+						"type": "oauth2"
+					}
+				},
+				presets: [
+				  SwaggerUIBundle.presets.apis,
+				  SwaggerUIStandalonePreset
+				],
+				plugins: [
+				  SwaggerUIBundle.plugins.DownloadUrl
+				],
+				layout: "StandaloneLayout"
+			  });
+
+			  window.ui = ui;
+
     });
     function demonstra() {
 	
