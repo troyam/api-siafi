@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>API SIAFI - SERPRO</title>
     <!-- <title>{{ site.title | default: site.github.repository_name }} por {{ site.github.owner_name }} </title>-->
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}" />
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/devserpro/api-siafi/master/_layouts/css/jPopup.css" />
     <meta name="viewport" content="width=device-width">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -98,12 +99,6 @@
 	    var a = document.createElement("script");
 	    a.src = "https://raw.githubusercontent.com/devserpro/api-siafi/master/_layouts/js/jPopup.min.js";
 	    document.getElementsByTagName("head")[0].appendChild(a);
-
-	    var a2 = document.createElement("link");
-	    a2.href = "https://raw.githubusercontent.com/devserpro/api-siafi/master/_layouts/css/jPopup.css";
-	    a2.type = "text/plain";
-	    a2.rel = "stylesheet";
-	    document.getElementsByTagName("head")[0].appendChild(a2);
 	})();
 	    
     function getParameterByName(name, url) {
