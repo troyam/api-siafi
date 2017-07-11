@@ -139,11 +139,8 @@
         var div2 = document.getElementsByClassName('bearer');
         var div2Bearer = div2[0];
         div2Bearer.innerHTML = bearer;
-	var inputText = document.getElementById('txtBearer');
-	inputText.value = "Bearer " + bearer;
       } else {
-	var inputText = document.getElementById('txtBearer');
-	inputText.value = "Bearer ";
+	      
       }
     };
     
@@ -197,6 +194,14 @@
 			  });
 
 			  window.ui = ui;
+	    		  var bearer = getParameterByName('bearer');
+      			  if (bearer != null) {
+	    		  	var bearerInput = document.getElementById("txtBearer");
+			  	bearerInput.value = "Bearer " + bearer;
+		          } else {
+			  	var bearerInput = document.getElementById("txtBearer");
+				bearerInput.value = "Bearer ";
+	    		  }
 
     });
     </script>
