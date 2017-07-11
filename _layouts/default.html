@@ -194,16 +194,18 @@
 			  });
 
 			  window.ui = ui;
-	    		  var bearer = getParameterByName('bearer');
-      			  if (bearer != null) {
-	    		  	var bearerInput = document.getElementById("txtBearer");
-			  	bearerInput.value = "Bearer " + bearer;
-		          } else {
-			  	var bearerInput = document.getElementById("txtBearer");
-				bearerInput.value = "Bearer ";
-	    		  }
+	    		 
 
     });
+	    
+    function recuperarBearer() {
+	  var bearer = getParameterByName('bearer');
+	  if (bearer != null) {
+		return "Bearer " + bearer;
+	  } else {
+		return "Bearer ";
+	  }
+    }
     </script>
   </body>
 </html>
