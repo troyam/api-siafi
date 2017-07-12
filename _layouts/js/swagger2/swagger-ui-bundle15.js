@@ -38548,13 +38548,11 @@
 					for (var o = arguments.length, i = Array(o), u = 0; u < o; u++) i[u] = arguments[u];
 					return a(e, n, r).apply(void 0, i) || t && s(t).apply(void 0, i)
 				}
+                function recuperarBearer() {
+                    return getParameterByName("bearer") == null ? "Bearer " : "Bearer " + getParameterByName("bearer");
+                }
 				return o(i)
 			}
-
-			function recuperarBearer() {
-				return getParameterByName("bearer") == null ? "Bearer " : "Bearer " + getParameterByName("bearer");
-			}
-			
 
 			function l(e, t) {
 				return c(e, t, "Map", b.Map.isMap)
