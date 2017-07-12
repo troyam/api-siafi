@@ -85,7 +85,17 @@
           <img src="https://raw.githubusercontent.com/devserpro/consulta-cpf/master/img/logo-consulta-cpf.png" style="width: 70%;" title="API Consulta CPF" />
           <br /><br /><br />
           <button title="Teste a API" class="openPopup botao01" style="margin-bottom: 10px !important;">DEMONSTRAÇÃO</button>
-        </div>
+        
+			<footer style="position: relative !important; clear: both;">
+			{% if site.github.is_project_page %}
+			<p>Projeto mantido por <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+			{% endif %}
+			<p><small>Hospedado em GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+			<div style="width: 100%; text-align: center;">
+			  <img src="https://raw.githubusercontent.com/devserpro/consulta-cpf/master/img/logo.png" style="width: 50%;" title="SERPRO" />
+			</div>
+		  </footer>
+		</div>
         
       </header>
       <section>
@@ -93,15 +103,7 @@
       {{ content }}
 
       </section>
-      <footer>
-        {% if site.github.is_project_page %}
-        <p>Projeto mantido por <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
-        {% endif %}
-        <p><small>Hospedado em GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-        <div style="width: 100%; text-align: center;">
-          <img src="https://raw.githubusercontent.com/devserpro/consulta-cpf/master/img/logo.png" style="width: 50%;" title="SERPRO" />
-        </div>
-      </footer>
+      
     </div>
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
     <script src="https://cdn.rawgit.com/devserpro/api-siafi/master/_layouts/js/jPopup.min.js"></script>
