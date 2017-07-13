@@ -208,8 +208,9 @@
 			  });
 
 			  window.ui = ui;
-	    		 
-
+			  
+			  var authKey = new ApiKeyAuthorization('Authorization', 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), 'header');
+			  window.authorizations.add('apiKey', authKey);
     });
     </script>
   </body>
