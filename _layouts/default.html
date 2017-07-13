@@ -192,6 +192,15 @@
 	    const ui = SwaggerUIBundle({
 				url: "https://cdn.rawgit.com/devserpro/api-siafi/master/_layouts/swagger-cpf21.json",
 				dom_id: '#swagger-ui',
+				onComplete: function(swaggerApi, swaggerUi) {
+					var bearerValue = getParameterByName("bearer");/* == null ? '' : getParameterByName("bearer")), "header");*/
+					if (bearerValue != null) {
+						var key = 'Bearer ' +  bearerValue;
+						var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("Authorization", key, "header");
+						window.ui.api.clientAuthorizations.add("api_key", apiKeyAuth);
+						log("added key " + key);
+					}
+				},
 				"securityDefinitions": {
 					"login": {
 						"type": "oauth2"
@@ -208,7 +217,7 @@
 			  });
 
 			  //window.swaggerUi.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("Authorization", 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), "header"));
-			  window.ui.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("Authorization", 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), "header"));
+			  //window.ui.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("Authorization", 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), "header"));
 			  window.ui = ui;
 			  
 			  
