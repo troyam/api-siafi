@@ -197,7 +197,7 @@
 					if (bearerValue != null) {
 						var key = 'Bearer ' +  bearerValue;
 						var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("Authorization", key, "header");
-						window.ui.api.clientAuthorizations.add("api_key", apiKeyAuth);
+						swaggerApi.clientAuthorizations.add("api_key", apiKeyAuth);
 						log("added key " + key);
 					}
 				},
