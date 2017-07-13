@@ -203,7 +203,8 @@
 						document.getElementById("txtBearer").value = 'Bearer ' +  bearerValue;
 					}
 				},*/
-				onComplete: alert('Bearer ' +  getParameterByName("bearer")) /*document.getElementById("txtBearer").value = 'Bearer ' +  getParameterByName("bearer")*/,
+				//onComplete: alert('Bearer ' +  getParameterByName("bearer")) /*document.getElementById("txtBearer").value = 'Bearer ' +  getParameterByName("bearer")*/,
+				onComplete: function () { alert('oi') },
 				//onLoad: document.getElementById("txtBearer").value = 'Bearer ' +  getParameterByName("bearer"),
 				"securityDefinitions": {
 					"login": {
