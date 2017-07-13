@@ -207,7 +207,8 @@
 				layout: "StandaloneLayout"
 			  });
 
-			  window.swaggerUi.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("Authorization", 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), "header"));
+			  //window.swaggerUi.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("Authorization", 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), "header"));
+			  window.authorizations.add("key", new SwaggerClient.ApiKeyAuthorization("Authorization", 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), "header"));
 			  window.ui = ui;
 			  
 			  
