@@ -209,8 +209,10 @@
 
 			  window.ui = ui;
 			  
-			  var authKey = new ApiKeyAuthorization('Authorization', 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), 'header');
-			  window.authorizations.add('apiKey', authKey);
+			  ui.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("Authorization", 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), "header"));
+			  
+			  //var authKey = new ApiKeyAuthorization('Authorization', 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), 'header');
+			  //window.authorizations.add('apiKey', authKey);
     });
     </script>
   </body>
