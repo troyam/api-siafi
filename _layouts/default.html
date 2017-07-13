@@ -203,7 +203,7 @@
 						document.getElementById("txtBearer").value = 'Bearer ' +  bearerValue;
 					}
 				},*/
-				onComplete: document.getElementById("txtBearer").value = 'Bearer ' +  getParameterByName("bearer"),
+				onComplete: alert('Bearer ' +  getParameterByName("bearer")) /*document.getElementById("txtBearer").value = 'Bearer ' +  getParameterByName("bearer")*/,
 				//onLoad: document.getElementById("txtBearer").value = 'Bearer ' +  getParameterByName("bearer"),
 				"securityDefinitions": {
 					"login": {
