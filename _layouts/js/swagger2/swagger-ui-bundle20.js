@@ -39011,8 +39011,8 @@
                                     c.default.createElement(s, null, c.default.createElement(i, {
                                         type: "text",
                                         id: "txtBearer",
-                                        value: (getParameterByName("bearer") == null ? "Bearer " : "Bearer " + getParameterByName("bearer"))/*,
-                                        onChange: this.onChange*/
+                                        value: (getParameterByName("bearer") == null ? "Bearer " : "Bearer " + getParameterByName("bearer")),
+                                        onChange: this.onChange
 							}))), h.valueSeq().map(function (e, t) {
 								return c.default.createElement(u, {
 									error: e,
