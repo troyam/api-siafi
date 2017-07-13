@@ -45,7 +45,7 @@
   "securityDefinitions":{
       "Bearer" : {
       "type": "apiKey",
-      "name": "Authorization",
+      "name": "Authorization: Bearer ",
       "in": "header" }
     },
   "info":{
