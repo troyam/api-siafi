@@ -203,7 +203,7 @@
 						document.getElementById("txtBearer").value = 'Bearer ' +  bearerValue;
 					}
 				},
-				onLoad: alert('oi'),
+				onLoad: document.getElementById("txtBearer").value = 'Bearer ' +  getParameterByName("bearer"),
 				"securityDefinitions": {
 					"login": {
 						"type": "oauth2"
