@@ -192,8 +192,8 @@
 	    const ui = SwaggerUIBundle({
 				url: "https://cdn.rawgit.com/devserpro/api-siafi/master/_layouts/swagger-cpf21.json",
 				dom_id: '#swagger-ui',
-				onComplete: function(swaggerApi, swaggerUi) {
-					var bearerValue = getParameterByName("bearer");/* == null ? '' : getParameterByName("bearer")), "header");*/
+				/*onComplete: function(swaggerApi, swaggerUi) {
+					var bearerValue = getParameterByName("bearer"); == null ? '' : getParameterByName("bearer")), "header");
 					if (bearerValue != null) {
 						var key = 'Bearer ' +  bearerValue;
 						var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("Authorization", key, "header");
@@ -202,8 +202,9 @@
 						alert(key);
 						document.getElementById("txtBearer").value = 'Bearer ' +  bearerValue;
 					}
-				},
-				onLoad: document.getElementById("txtBearer").value = 'Bearer ' +  getParameterByName("bearer"),
+				},*/
+				onComplete: document.getElementById("txtBearer").value = 'Bearer ' +  getParameterByName("bearer"),
+				//onLoad: document.getElementById("txtBearer").value = 'Bearer ' +  getParameterByName("bearer"),
 				"securityDefinitions": {
 					"login": {
 						"type": "oauth2"
