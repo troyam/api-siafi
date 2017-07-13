@@ -38548,11 +38548,12 @@
 					for (var o = arguments.length, i = Array(o), u = 0; u < o; u++) i[u] = arguments[u];
 					return a(e, n, r).apply(void 0, i) || t && s(t).apply(void 0, i)
 				}
-                function recuperarBearer() {
-                    return getParameterByName("bearer") == null ? "Bearer " : "Bearer " + getParameterByName("bearer");
-                }
 				return o(i)
 			}
+
+            function recuperarBearer() {
+                return getParameterByName("bearer") == null ? "Bearer " : "Bearer " + getParameterByName("bearer");
+            }
 
 			function l(e, t) {
 				return c(e, t, "Map", b.Map.isMap)
@@ -39010,7 +39011,7 @@
 							})), c.default.createElement(a, null, c.default.createElement("p", null, "Nome: ", c.default.createElement("code", null, t.get("name")))), c.default.createElement(a, null, c.default.createElement("p", null, "In: ", c.default.createElement("code", null, t.get("in")))), c.default.createElement(a, null, c.default.createElement("label", null, "Valor:"), f ? c.default.createElement("code", null, " ****** ") : c.default.createElement(s, null, c.default.createElement(i, {
 								type: "text",
 								id: "txtBearer",
-								value: this.recuperarBearer(),
+								value: recuperarBearer(),
 								onChange: this.onChange
 							}))), h.valueSeq().map(function (e, t) {
 								return c.default.createElement(u, {
