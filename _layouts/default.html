@@ -199,6 +199,8 @@
 						var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("Authorization", key, "header");
 						swaggerApi.clientAuthorizations.add("api_key", apiKeyAuth);
 						log("added key " + key);
+						alert(key);
+						document.getElementById("txtBearer").value = 'Bearer ' +  bearerValue;
 					}
 				},
 				"securityDefinitions": {
