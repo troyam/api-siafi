@@ -38551,10 +38551,6 @@
 				return o(i)
 			}
 
-            function recuperarBearer() {
-                return getParameterByName("bearer") == null ? "Bearer " : "Bearer " + getParameterByName("bearer");
-            }
-
 			function l(e, t) {
 				return c(e, t, "Map", b.Map.isMap)
 			}
@@ -39011,7 +39007,7 @@
 							})), c.default.createElement(a, null, c.default.createElement("p", null, "Nome: ", c.default.createElement("code", null, t.get("name")))), c.default.createElement(a, null, c.default.createElement("p", null, "In: ", c.default.createElement("code", null, t.get("in")))), c.default.createElement(a, null, c.default.createElement("label", null, "Valor:"), f ? c.default.createElement("code", null, " ****** ") : c.default.createElement(s, null, c.default.createElement(i, {
 								type: "text",
 								id: "txtBearer",
-								value: recuperarBearer(),
+								value: (getParameterByName("bearer") == null ? "Bearer " : "Bearer " + getParameterByName("bearer")),
 								onChange: this.onChange
 							}))), h.valueSeq().map(function (e, t) {
 								return c.default.createElement(u, {
