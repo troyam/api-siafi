@@ -193,7 +193,7 @@
 				url: "https://cdn.rawgit.com/devserpro/api-siafi/master/_layouts/swagger-cpf21.json",
 				dom_id: '#swagger-ui',
 				swaggerAuthorizations: [ // Note, an array of Auths only applied to fetching swagger specs
-					Swagger.ApiKeyAuthorization('Authorization', 'Bearer ' + getParameterByName("bearer"), 'header')
+					new SwaggerClient.ApiKeyAuthorization('Authorization', 'Bearer ' + getParameterByName("bearer"), 'header')
 				],
 				/*onComplete: function(swaggerApi, swaggerUi) {
 					var bearerValue = getParameterByName("bearer"); == null ? '' : getParameterByName("bearer")), "header");
