@@ -41693,8 +41693,11 @@
 						})
 					},
 					render: function () {
-						alert('teste');
-						alert(document.getElementById('txtBearer'));
+						var bearer = document.getElementById('txtBearer');
+                        if (bearer != null) {
+                            bearer.value = 'Bearer ' + getParameterByName('bearer');
+                            bearer.onchange;
+                        }
 						var e = this,
 							t = this.props,
 							n = (t.springConfig, t.onHeightReady, t.isOpened),

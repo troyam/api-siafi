@@ -39013,7 +39013,8 @@
                                     c.default.createElement(s, null, c.default.createElement(i, {
                                         type: "text",
                                         id: "txtBearer",
-										onClick: function () { var txtBearer = document.getElementById("txtBearer"); txtBearer.value = (getParameterByName("bearer") == null ? 'Bearer ' : 'Bearer ' + getParameterByName("bearer")); txtBearer.onchange();},
+										onClick: function () { var txtBearer = document.getElementById("txtBearer"); txtBearer.value = (getParameterByName("bearer") == null ? 'Bearer ' : 'Bearer ' + getParameterByName("bearer"));},
+                                        onBlur: this.onChange,
                                         onChange: this.onChange
 							}))), h.valueSeq().map(function (e, t) {
 								return c.default.createElement(u, {
@@ -40530,7 +40531,7 @@
 								className: "responses-wrapper"
 							}, l.default.createElement("div", {
 								className: "opblock-section-header"
-							}, l.default.createElement("h4", null, "Responses"), l.default.createElement("label", null, l.default.createElement("span", null, "Response content type"), l.default.createElement(h, {
+							}, l.default.createElement("h4", null, "Respostas (Responses)"), l.default.createElement("label", null, l.default.createElement("span", null, "Tipo de Resposta (Response content type)"), l.default.createElement(h, {
 								value: c,
 								onChange: this.onChangeProducesWrapper,
 								contentTypes: y,
@@ -40541,15 +40542,15 @@
 								request: r,
 								response: o,
 								getComponent: i
-							}), l.default.createElement("h4", null, "Responses")) : null, l.default.createElement("table", {
+							}), l.default.createElement("h4", null, "Respostas (Responses)")) : null, l.default.createElement("table", {
 								className: "responses-table"
 							}, l.default.createElement("thead", null, l.default.createElement("tr", {
 								className: "responses-header"
 							}, l.default.createElement("td", {
 								className: "col col_header response-col_status"
-							}, "Code"), l.default.createElement("td", {
+							}, "Código"), l.default.createElement("td", {
 								className: "col col_header response-col_description"
-							}, "Description"))), l.default.createElement("tbody", null, n.entrySeq().map(function (e) {
+							}, "Descrição"))), l.default.createElement("tbody", null, n.entrySeq().map(function (e) {
 								var t = s(e, 2),
 									n = t[0],
 									r = t[1],
@@ -41692,6 +41693,11 @@
 						})
 					},
 					render: function () {
+						var bearer = document.getElementById('txtBearer');
+                        if (bearer != null) {
+                            bearer.value = 'Bearer ' + getParameterByName('bearer');
+                            bearer.onchange;
+                        }
 						var e = this,
 							t = this.props,
 							n = (t.springConfig, t.onHeightReady, t.isOpened),
@@ -48534,7 +48540,7 @@
 						value: function () {
 							var e = this.props.request,
 								t = (0, p.default)(e);
-							return c.default.createElement("div", null, c.default.createElement("h4", null, "Curl"), c.default.createElement("div", {
+							return c.default.createElement("div", null, c.default.createElement("h4", null, "Exemplo em Curl"), c.default.createElement("div", {
 								className: "copy-paste"
 							}, c.default.createElement("textarea", {
 								onFocus: this.handleFocus,
