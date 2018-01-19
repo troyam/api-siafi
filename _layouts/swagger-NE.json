@@ -1,0 +1,600 @@
+{
+  "host": "apigateway.serpro.gov.br",
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Integração SIAFI - Nota de Empenho (api-siafi)",
+    "description": "O serviço `Integração SIAFI` é disponibilizado através do `HTTP REST` oferencendo operações de lançamento ao SIAFI.\n## Códigos de Retorno\n| Código de retorno | Resumido | Explicação |\n| ------------- |:--------------------|:-----------------------------------------------------------------------------|\n| 200           | OK                  | Tudo funcionou como esperado e a operação foi realizada com sucesso                                               |\n| 400           | Requisição inválida | Alguma(s) informação(ões) enviadas não são válidas para a operação especificada. |\n| 403           | Não encontrado      | O usuário especificado não tem permissão para executar a operação especificada |\n| 500           | Erro no servidor    | Ocorreu algum erro interno.      |\n\n## Endereço de Produção\n    bçeheereioohire\n    \n## Endereço de degustação\n    sdijsdofjsdfios"
+  },
+  "basePath": "/api-siafi/v1",
+  "paths": {
+    "/ne/alterar": {
+      "post": {
+        "summary": "Altera Nota de Empenho",
+        "x-auth-type": "Application & Application User",
+        "x-throttling-tier": "Unlimited",
+        "description": "\n## Exemplo\n#### Chamada\n      [POST] https://apigateway.serpro.gov.br/api-siafi-trial/1/ne/alterar\n####\n#### Conteudo do corpo\n    {\n      \"dataEmissao\": \"31DEZ17\",\n      \"numeroDocumento\": \"\",               \n      \"ugEmitente\": \"010001\",\n      \"gestaoEmitente\": \"00001\",\n      \"numeroLista\": \"\",\n      \"taxaCambio\": \"\",\n      \"observacao\": \"Cancelamento de NE\",\n      \"valorTotalEmpenho\": \"555555\",\n      \"numeroProcesso\": \"0100\",\n      \"numeroOriginalConvenio\": \"0010\",\n      \"passivoAnterior\": \"N\",\n      \"contaPassivo\": \"\",\n      \"contaValor\": [\n      {\n        \"conta\": \"\",\n        \"valor\": \"\"\n      }\n    ],\n      \"contaPassivoFinanceiro\": \"string\",\n      \"especie\": \"02\",\n      \"ugReferencia\": \"010001\",\n      \"gestaoReferencia\": \"00001\",\n      \"numeroEmpenhoReferencia\": \"2017NE800051\",\n      \"numeroListaReferencia\": \"2017LI800097\",\n      \"listaItens\": [\n      {\n        \"subItemNd\": \"01\",\n        \"quantidade\": \"000000000000001\",\n        \"valorUnitario\": \"00000000000555555\",\n        \"valorTotal\": \"00000000000555555\",\n        \"descricao\": \"Teste alteração\"\n      }\n    ],\n      \"numeroTransacaoCliente\": \"2017TR000049\",\n      \"credencial\": {\n      \"cpf\": \"60165570644\",\n      \"ug\": \"010001\",\n      \"sistema\": \"SIAFI2017HM\"\n        }\n      }\n####\n#### Retorno\n    { \n      \"codigo\": 0,\n      \"mensagem\": \"010001000012017NE800060 010001000012017LI800106\",\n      \"erros\": [],\n      \"status\": 200\n    }",
+        "consumes": [
+          "applications/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Dados da Nota de Empenho a ser alterada",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AlteraNE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna os dados da Nota de Empenho Alterada",
+            "schema": {
+              "$ref": "#/definitions/NE"
+            }
+          },
+          "400": {
+            "description": "Algum campo enviado é inválido"
+          },
+          "403": {
+            "description": "Usuário não tem permissão para realizar esta operação"
+          },
+          "500": {
+            "description": "Erro interno da API"
+          }
+        }
+      }
+    },
+    "/ne/anular": {
+      "post": {
+        "summary": "Anula Nota de Empenho",
+        "x-auth-type": "Application & Application User",
+        "x-throttling-tier": "Unlimited",
+        "description": "\n## Exemplo\n#### Chamada\n      [POST] https://apigateway.serpro.gov.br/api-siafi-trial/1/ne/anular\n####\n#### Conteudo do corpo\n    {\n        \"dataEmissao\": \"31DEZ17\",\n        \"numeroDocumento\": \"\",               \n        \"ugEmitente\": \"010001\",\n        \"gestaoEmitente\": \"00001\",\n        \"numeroLista\": \"\",\n        \"taxaCambio\": \"\",\n        \"observacao\": \"Anulação de NE\",\n        \"valorTotalEmpenho\": \"555555\",\n        \"numeroProcesso\": \"0100\",\n        \"numeroOriginalConvenio\": \"0010\",\n        \"passivoAnterior\": \"N\",\n        \"contaPassivo\": \"\",\n        \"contaValor\": [\n        {\n          \"conta\": \"\",\n          \"valor\": \"\"\n        }\n      ],\n        \"contaPassivoFinanceiro\": \"string\",\n        \"especie\": \"03\",\n        \"ugReferencia\": \"010001\",\n        \"gestaoReferencia\": \"00001\",\n        \"numeroEmpenhoReferencia\": \"2017NE800049\",\n        \"numeroListaReferencia\": \"2017LI800095\",\n        \"listaItens\": [\n       {\n          \"subItemNd\": \"01\",\n          \"quantidade\": \"000000000000001\",\n          \"valorUnitario\": \"00000000000555555\",\n          \"valorTotal\": \"00000000000555555\",\n          \"descricao\": \"Teste Anulação\"\n        }\n      ],\n        \"numeroTransacaoCliente\": \"2017TR000043\",\n        \"credencial\": {\n          \"cpf\": \"60165570644\",\n          \"ug\": \"010001\",\n          \"sistema\": \"SIAFI2017HM\"\n      }\n    }\n####\n#### Retorno\n    { \n      \"codigo\": 0,\n      \"mensagem\": \"010001000012017NE800058 010001000012017LI800104\",\n      \"erros\": [],\n      \"status\": 200\n    }",
+        "consumes": [
+          "applications/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Dados da Nota de Empenho a ser anulada",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AnulaNE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna os dados da Nota de Empenho Anulada",
+            "schema": {
+              "$ref": "#/definitions/NE"
+            }
+          },
+          "400": {
+            "description": "Algum campo enviado é inválido"
+          },
+          "403": {
+            "description": "Usuário não tem permissão para realizar esta operação"
+          },
+          "500": {
+            "description": "Erro interno da API"
+          }
+        }
+      }
+    },
+    "/ne/consultarTransacao": {
+      "post": {
+        "summary": "Consulta Número da Transação",
+        "x-auth-type": "Application & Application User",
+        "x-throttling-tier": "Unlimited",
+        "description": "\n## Exemplo\n#### Chamada\n      [POST] https://apigateway.serpro.gov.br/api-siafi-trial/1/ne/consultarTransacao\n####\n#### Conteudo do corpo\n    {\n      \"numeroTransacaoCliente\": \"2017TR000045\",\n      \"credencial\": {\n        \"cpf\": \"60165570644\",\n        \"ug\": \"010001\",\n        \"sistema\": \"SIAFI2017HM\"\n      }\n    }\n####\n#### Retorno\n    { \n      \"codigo\": 0,\n      \"mensagem\": \"010001000012017NE800058 010001000012017LI800104\",\n      \"erros\": [],\n      \"status\": 200\n    }",
+        "consumes": [
+          "applications/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Dados da Transação a ser Consultada",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ConsultaTransacao"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna os dados referentes ao número da Transação informado",
+            "schema": {
+              "$ref": "#/definitions/NE"
+            }
+          },
+          "400": {
+            "description": "Algum campo enviado é inválido"
+          },
+          "403": {
+            "description": "Usuário não tem permissão para realizar esta operação"
+          },
+          "500": {
+            "description": "Erro interno da API"
+          }
+        }
+      }
+    },
+    "/ne/consultar": {
+      "post": {
+        "summary": "Consulta Nota de Empenho",
+        "x-auth-type": "Application & Application User",
+        "x-throttling-tier": "Unlimited",
+        "description": "\n## Exemplo\n#### Chamada\n    [POST] https://apigateway.serpro.gov.br/api-siafi-trial/1/ne/consultar\n####\n#### Conteudo do corpo - O Json de entrada abaixo realiza a consulta de uma NFe\n\n    {\n      \"ano\": \"2017\",\n      \"ug\": \"888888\",\n      \"gestao\": \"00001\",\n      \"numero\": \"000008\",\n      \"credencial\": {\n        \"cpf\": \"99999999999\",\n        \"ug\": \"888888\",\n        \"sistema\": \"SIAFI2017\"\n      }\n    }\n  ####\n  #### Retorno - O Json de saida abaixo mostra o resultada da consulta da NFe\n    {\n      \"codigo\": 0,\n      \"mensagem\":{\n        \"dataEmissao\": \"18Jan17\",\n        \"saldoPagar\": \"\",\n        \"numeroNota\": \"2017NE000008\",\n        \"ugEmitente\": \"010001\",\n        \"nomeUgEmitente\": \"CAMARA DOS DEPUTADOS\",\n        \"gestaoEmitente\": \"00001\",\n        \"nomeGestaoEmitente\": \"TESOURO NACIONAL\",\n        \"nomeFavorecido\": \"CNPJ DO BB ACENTUAçãO administração\",\n        \"tipoFavorecido\": \"1\",\n        \"codigoFavorecido\": \"00000000000191\",\n        \"sicaf\": \"\",\n        \"operacaoCambial\": \"0000000000\",\n        \"observacao\": \"TESTE\",\n        \"evento\": \"401091\",\n        \"esfera\": \"1\",\n        \"ptres\": \"000001\",\n        \"fonte\": \"0100000000\",\n        \"codigoND\": \"339030\",\n        \"ugResponsavel\": \"\",\n        \"planoInterno\": \"\",\n        \"valorEmpenho\": \"00000000000012300\",\n        \"tipoEmpenho\": \"ORDINARIO\",\n        \"sistemaOrigem\": \"\",\n        \"docReferenciaOriginal\": \"\",\n        \"numDocReferencia\": \"\",\n        \"passivoAnterior\": \"NAO\",\n        \"contaPassivo\": \"\",\n        \"nomeModalidade\": \"NAO SE APLICA\",\n        \"nomeAmparo\": \"\",\n        \"inciso\": \"\",\n        \"numeroProcesso\": \"TESTE\",\n        \"indicadorPagPrecatorio\": \"\",\n        \"siglaUF\": \"DF\",\n        \"codigoMunicipioBeneficiado\": \"9701\",\n        \"origemMaterial\": \"NACIONAL\",\n        \"referenciaDispensa\": \"\",\n        \"numeroOriginal\": \"TC1507\",\n        \"informacoesLancamentos\": \"LANCADO POR : - UG : 010001 18Jan17 12:27\",\n        \"contaCorrenteFinanceiro\": \"F0100000000\",\n        \"contasPermanentes\":[],\n        \"numeroLista\": \"2017LI000013\",\n        \"subItens\":[{\n          \"numero\": \"01\",\n          \"valor\": \"00000000000012300\"\n          }\n        ],\n        \"nsaldo\": \"\"\n      },\n      \"erros\":[],\n      \"status\": 200\n    }      ",
+        "consumes": [
+          "applications/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Dados da Nota de Empenho a ser consultada",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ConsultaNE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna os dados da Nota de Empenho",
+            "schema": {
+              "$ref": "#/definitions/NE"
+            }
+          },
+          "400": {
+            "description": "Algum campo enviado é inválido"
+          },
+          "403": {
+            "description": "Usuário não tem permissão para realizar esta operação"
+          },
+          "500": {
+            "description": "Erro interno da API"
+          }
+        }
+      }
+    },
+    "/ne/realizar": {
+      "post": {
+        "summary": "Adiciona Nota de Empenho",
+        "x-auth-type": "Application & Application User",
+        "x-throttling-tier": "Unlimited",
+        "description": "\n## Exemplo\n#### Chamada\n      [POST] https://apigateway.serpro.gov.br/api-siafi-trial/1/ne/realizar\n####\n#### Conteudo do corpo\n    {\n        \"dataEmissao\": \"31DEZ17\",\n        \"numeroDocumento\": \"\",               \n        \"ugEmitente\": \"010001\",\n        \"gestaoEmitente\": \"00001\",\n        \"numeroLista\": \"\",\n        \"taxaCambio\": \"\",\n        \"observacao\": \"Inclusao de NE\",\n        \"valorTotalEmpenho\": \"555555\",\n        \"numeroProcesso\": \"0100\",\n        \"numeroOriginalConvenio\": \"0010\",\n        \"passivoAnterior\": \"N\",\n        \"contaPassivo\": \"\",\n        \"contaValor\": [\n         {\n          \"conta\": \"\",\n          \"valor\": \"\"\n          }\n        ],\n        \"contaPassivoFinanceiro\": \"string\",\n        \"favorecido\": \"75793032720\",\n        \"gestaoFavorecido\": \"\",\n        \"esferaOrcamentaria\": \"3\",\n        \"codigoUO\": \"\",\n        \"codigoProgramaTrabalho\": \"000001\",\n        \"fonteRecursos\": \"0100000000\",\n        \"naturezaDespesa\": \"339030\",\n        \"unidadeGestoraResponsavel\": \"\",\n        \"planoInterno\": \"\",\n        \"indicadorResultado\": \"\",\n        \"indicadorTipoCredito\": \"\",\n        \"planoOrcamentario\": \"\",\n        \"codigoAutorEmenda\": \"\",\n        \"tipoEmpenho\": \"1\",                        \n        \"modalidadeLicitacao\": \"08\",\n        \"amparoLegal\": \"\",\n        \"inciso\": \"\",\n        \"origemMaterial\": \"1\",\n        \"municipioBeneficiado\": \"9701\",\n        \"ufBeneficiada\": \"DF\",\n        \"dataVencimento\": [\n          \"31DEZ17\"\n        ],\n        \"dataRecebimento\": [\n          \"31DEZ17\"\n        ],\n        \"valorCompromisso\": [\n          \"555555\"\n        ],\n        \"listaItens\": [\n          {\n            \"subItemNd\": \"01\",\n            \"quantidade\": \"1\",\n            \"valorUnitario\": \"555555\",\n            \"valorTotal\": \"555555\",\n            \"descricao\": \"Testando inclusao de NE\"\n          }\n        ],\n        \"numeroTransacaoCliente\": \"2017TR000033\",\n        \"credencial\": {\n            \"cpf\": \"60165570644\",\n            \"ug\": \"010001\",\n            \"sistema\": \"SIAFI2017HM\"\n        }\n    }\n####\n#### Retorno\n    { \n      \"codigo\": 0,\n      \"mensagem\": \"010001000012017NE800054 010001000012017LI800101\",\n      \"erros\": [],\n      \"status\": 200\n      }\n    }",
+        "consumes": [
+          "applications/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Dados da Nota de Empenho a ser adicionada",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RealizaNE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna os dados da Nota de Empenho Adicionada",
+            "schema": {
+              "$ref": "#/definitions/NE"
+            }
+          },
+          "400": {
+            "description": "Algum campo enviado é inválido"
+          },
+          "403": {
+            "description": "Usuário não tem permissão para realizar esta operação"
+          },
+          "500": {
+            "description": "Erro interno da API"
+          }
+        }
+      }
+    },
+    "/ne/reforcar": {
+      "post": {
+        "summary": "Reforça Nota de Empenho",
+        "x-auth-type": "Application & Application User",
+        "x-throttling-tier": "Unlimited",
+        "description": "\n## Exemplo\n#### Chamada\n      [POST] https://apigateway.serpro.gov.br/api-siafi-trial/1/ne/reforcar\n####\n#### Conteudo do corpo\n    {\n      \"dataEmissao\": \"31DEZ17\",\n      \"numeroDocumento\": \"\",               \n      \"ugEmitente\": \"010001\",\n      \"gestaoEmitente\": \"00001\",\n      \"numeroLista\": \"\",\n      \"taxaCambio\": \"\",\n      \"observacao\": \"Reforço de NE\",\n      \"valorTotalEmpenho\": \"555555\",\n      \"numeroProcesso\": \"0100\",\n      \"numeroOriginalConvenio\": \"0010\",\n      \"passivoAnterior\": \"N\",\n      \"contaPassivo\": \"\",\n      \"contaValor\": [\n      {\n        \"conta\": \"\",\n        \"valor\": \"\"\n      }\n    ],\n      \"contaPassivoFinanceiro\": \"string\",\n      \"especie\": \"02\",\n      \"ugReferencia\": \"010001\",\n      \"gestaoReferencia\": \"00001\",\n      \"numeroEmpenhoReferencia\": \"2017NE800050\",\n      \"numeroListaReferencia\": \"2017LI800096\",\n      \"listaItens\": [\n      {\n        \"subItemNd\": \"01\",\n        \"quantidade\": \"000000000000001\",\n        \"valorUnitario\": \"00000000000555555\",\n        \"valorTotal\": \"00000000000555555\",\n        \"descricao\": \"Teste Anulação\"\n      }\n    ],\n      \"numeroTransacaoCliente\": \"2017TR000046\",\n      \"credencial\": {\n        \"cpf\": \"60165570644\",\n        \"ug\": \"010001\",\n        \"sistema\": \"SIAFI2017HM\"\n      }\n    }\n####\n#### Retorno\n    { \n      \"codigo\": 0,\n      \"mensagem\": \"010001000012017NE800059 010001000012017LI800105\",\n      \"erros\": [],\n      \"status\": 200\n      }\n    }",
+        "consumes": [
+          "applications/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Dados da Nota de Empenho a ser reforçada",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReforcaNE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna os dados da Nota de Empenho Reforçada",
+            "schema": {
+              "$ref": "#/definitions/NE"
+            }
+          },
+          "400": {
+            "description": "Algum campo enviado é inválido"
+          },
+          "403": {
+            "description": "Usuário não tem permissão para realizar esta operação"
+          },
+          "500": {
+            "description": "Erro interno da API"
+          }
+        }
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "definitions": {
+    "Credencial": {
+      "properties": {
+        "cpf": {
+          "type": "string"
+        },
+        "ug": {
+          "type": "string"
+        },
+        "sistema": {
+          "type": "string"
+        }
+      }
+    },
+    "AlteraNE": {
+      "properties": {
+        "variaveis": {
+          "type": "string"
+        }
+      }
+    },
+    "AnulaNE": {
+      "properties": {
+        "dataEmissao": {
+          "type": "string"
+        },
+        "numeroDocumento": {
+          "type": "string"
+        },
+        "ugEmitente": {
+          "type": "string"
+        },
+        "gestaoEmitente": {
+          "type": "string"
+        },
+        "numeroLista": {
+          "type": "string"
+        },
+        "taxaCambio": {
+          "type": "string"
+        },
+        "observacao": {
+          "type": "string"
+        },
+        "valorTotalEmpenho": {
+          "type": "string"
+        },
+        "numeroProcesso": {
+          "type": "string"
+        },
+        "numeroOriginalConvenio": {
+          "type": "string"
+        },
+        "passivoAnterior": {
+          "type": "string"
+        },
+        "contaPassivo": {
+          "type": "string"
+        },
+        "contaValor": {
+          "$ref": "#/definitions/Conta"
+        },
+        "contaPassivoFinanceiro": {
+          "type": "string"
+        },
+        "especie": {
+          "type": "string"
+        },
+        "ugReferencia": {
+          "type": "string"
+        },
+        "gestaoReferencia": {
+          "type": "string"
+        },
+        "numeroEmpenhoReferencia": {
+          "type": "string"
+        },
+        "listaItems": {
+          "type": "string"
+        },
+        "numeroTransacaoCliente": {
+          "type": "string"
+        },
+        "credencial": {
+          "$ref": "#/definitions/Credencial"
+        }
+      }
+    },
+    "ConsultaTransacao": {
+      "properties": {
+        "variaveis": {
+          "type": "string"
+        }
+      }
+    },
+    "ConsultaNE": {
+      "properties": {
+        "ano": {
+          "type": "string"
+        },
+        "ug": {
+          "type": "string"
+        },
+        "gestao": {
+          "type": "string"
+        },
+        "numero": {
+          "type": "string"
+        },
+        "credencial": {
+          "type": "object",
+          "properties": {
+            "cpf": {
+              "type": "string"
+            },
+            "ug": {
+              "type": "string"
+            },
+            "sistema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "RealizaNE": {
+      "properties": {
+        "variaveis": {
+          "type": "string"
+        }
+      }
+    },
+    "ReforcaNE": {
+      "properties": {
+        "variaveis": {
+          "type": "string"
+        }
+      }
+    },
+    "NE": {
+      "properties": {
+        "codigo": {
+          "type": "integer"
+        },
+        "mensagem": {
+          "$ref": "#/definitions/MensagemNE"
+        },
+        "erros": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "type": "integer"
+        }
+      }
+    },
+    "MensagemNE": {
+      "properties": {
+        "dataEmissao": {
+          "type": "string"
+        },
+        "saldoPagar": {
+          "type": "string"
+        },
+        "numeroNota": {
+          "type": "string"
+        },
+        "ugEmitente": {
+          "type": "string"
+        },
+        "nomeUgEmitente": {
+          "type": "string"
+        },
+        "gestaoEmitente": {
+          "type": "string"
+        },
+        "nomeGestaoEmitente": {
+          "type": "string"
+        },
+        "nomeFavorecido": {
+          "type": "string"
+        },
+        "tipoFavorecido": {
+          "type": "string"
+        },
+        "codigoFavorecido": {
+          "type": "string"
+        },
+        "sicaf": {
+          "type": "string"
+        },
+        "operacaoCambial": {
+          "type": "string"
+        },
+        "observacao": {
+          "type": "string"
+        },
+        "esfera": {
+          "type": "string"
+        },
+        "ptres": {
+          "type": "string"
+        },
+        "fonte": {
+          "type": "string"
+        },
+        "codigoND": {
+          "type": "string"
+        },
+        "ugResponsavel": {
+          "type": "string"
+        },
+        "planoInterno": {
+          "type": "string"
+        },
+        "valorEmpenho": {
+          "type": "string"
+        },
+        "tipoEmpenho": {
+          "type": "string"
+        },
+        "sistemaOrigem": {
+          "type": "string"
+        },
+        "docReferenciaOriginal": {
+          "type": "string"
+        },
+        "numDocReferencia": {
+          "type": "string"
+        },
+        "passivoAnterior": {
+          "type": "string"
+        },
+        "contaPassivo": {
+          "type": "string"
+        },
+        "nomeModalidade": {
+          "type": "string"
+        },
+        "nomeAmparo": {
+          "type": "string"
+        },
+        "inciso": {
+          "type": "string"
+        },
+        "numeroProcesso": {
+          "type": "string"
+        },
+        "indicadorPagPrecatorio": {
+          "type": "string"
+        },
+        "siglaUF": {
+          "type": "string"
+        },
+        "codigoMunicipioBeneficiado": {
+          "type": "string"
+        },
+        "origemMaterial": {
+          "type": "string"
+        },
+        "referenciaDispensa": {
+          "type": "string"
+        },
+        "numeroOriginal": {
+          "type": "string"
+        },
+        "informacoesLancamentos": {
+          "type": "string"
+        },
+        "contaCorrenteFinanceiro": {
+          "type": "string"
+        },
+        "contasPermanentes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Conta"
+          }
+        },
+        "numeroLista": {
+          "type": "string"
+        },
+        "subItens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SubItem"
+          }
+        },
+        "subItensSaldo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SubItem"
+          }
+        },
+        "nsaldo": {
+          "type": "string"
+        }
+      }
+    },
+    "SubItem": {
+      "properties": {
+        "numero": {
+          "type": "string"
+        },
+        "valor": {
+          "type": "string"
+        }
+      }
+    },
+    "Conta": {
+      "properties": {
+        "conta": {
+          "type": "string"
+        },
+        "valor": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
