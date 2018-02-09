@@ -18,7 +18,7 @@
     "title": "Integração SIAFI - Nota de Empenho (api-siafi)",
     "description": "O serviço `Integração SIAFI` é disponibilizado através do `HTTP REST` oferencendo operações de lançamento ao SIAFI.\n## Códigos de Retorno\n| Código de retorno | Resumido | Explicação |\n| ------------- |:--------------------|:-----------------------------------------------------------------------------|\n| 200           | OK                  | Tudo funcionou como esperado e a operação foi realizada com sucesso                                               |\n| 400           | Requisição inválida | Alguma(s) informação(ões) enviadas não são válidas para a operação especificada. |\n| 403           | Não encontrado      | O usuário especificado não tem permissão para executar a operação especificada |\n| 500           | Erro no servidor    | Ocorreu algum erro interno.      |\n\n## Endereço de Produção\n    https://apigateway.serpro.gov.br/api-siafi/1.0/\n    \n## Endereço de Degustação\n    https://apigateway.serpro.gov.br/api-siafi-trial/1.0.0/\n    "
   },
-  "basePath": "/api-siafi/1.0",
+  "basePath": "/api-siafi-trial/1.0.0",
   "paths": {
     "/ne/alterar": {
       "post": {
