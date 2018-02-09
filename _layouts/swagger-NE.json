@@ -104,12 +104,12 @@
         }
       }
     },
-    "/ne/consultarTransacao": {
+    "/ne/consultaTransacao": {
       "post": {
         "summary": "Consulta Número da Transação",
         "x-auth-type": "Application & Application User",
         "x-throttling-tier": "Unlimited",
-        "description": "\n## Exemplo\n#### Chamada\n      [POST] https://apigateway.serpro.gov.br/api-siafi-trial/1.0.0/ne/consultarTransacao\n####\n#### Conteudo do corpo\n    {\n      \"numeroTransacaoCliente\": \"2017TR000045\",\n      \"credencial\": {\n        \"cpf\": \"60165570644\",\n        \"ug\": \"010001\",\n        \"sistema\": \"SIAFI2017HM\"\n      }\n    }\n####\n#### Retorno\n    { \n      \"codigo\": 0,\n      \"mensagem\": \"010001000012017NE800058 010001000012017LI800104\",\n      \"erros\": [],\n      \"status\": 200\n    }",
+        "description": "\n## Exemplo\n#### Chamada\n      [POST] https://apigateway.serpro.gov.br/api-siafi-trial/1.0.0/ne/consultaTransacao\n####\n#### Conteudo do corpo\n    {\n      \"numeroTransacaoCliente\": \"2017TR000045\",\n      \"credencial\": {\n        \"cpf\": \"60165570644\",\n        \"ug\": \"010001\",\n        \"sistema\": \"SIAFI2017HM\"\n      }\n    }\n####\n#### Retorno\n    { \n      \"codigo\": 0,\n      \"mensagem\": \"010001000012017NE800058 010001000012017LI800104\",\n      \"erros\": [],\n      \"status\": 200\n    }",
         "consumes": [
           "applications/json"
         ],
